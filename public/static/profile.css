@@ -1,0 +1,11 @@
+.text-primary:hover {
+    color: blue;
+}
+
+.card-footer {
+    padding-top: 5px;
+    background-color: white;
+    padding-bottom: 0;
+    border: none;
+    height: 25px;
+}

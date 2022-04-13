@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="static/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="network/index.js"></script>
+    <link rel="stylesheet" href="static/profile.css">
+    <title>URLShortener | Profile</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="static/favicon.png" width="30" height="30"
+                                          class="d-inline-block align-top" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item font-italic">
+                <a class="nav-link" href="#">URL Shortener <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+            </li>
+        </ul>
+        <div class="navbar-nav ml-auto">
+            <div class="nav-item"><a href="" class="nav-link" id="id_me"></a></div>
+            <div class="nav nav-item pr-1 pl-1"><a href="" onclick="logout()" class="text-primary nav-link">Выйти</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h5 class="mt-2">Мои URL</h5>
+    <div class="row" id="my_urls">
+    </div>
+    <hr style="width: 100%">
+    <div>
+        <h5 class="mt-2">Создать URL</h5>
+        <div class="form-group">
+            <label for="id_url_create_form">URL адресс</label>
+            <input type="url" class="form-control" id="id_url_create_form" aria-describedby="emailHelp"
+                   placeholder="https://">
+            <small id="emailHelp" class="form-text text-muted">Введите корректный URL</small>
+        </div>
+        <button onclick="create()" class="btn btn-primary">Создать</button>
+
+    </div>
+</div>
+
+<script>
+    me(document.getElementById("id_me"))
+    urls(document.getElementById("my_urls"))
+</script>
+</body>
+</html>

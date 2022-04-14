@@ -20,10 +20,30 @@ const me = (element) => {
     }
 }
 
+const signup = () => {
+    let username = document.getElementById("id_username").value
+    let password = document.getElementById("id_password").value
+
+
+    $.ajax({
+        url: BACKEND_HOST + "/api/v1/users/",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+            "username": username,
+            "password": password
+        }),
+        success: function (response) {
+            window.localStorage.setItem("accessToken", "Bearer " + response.access_token)
+            window.location.href = "/profile.html"
+        },
+        error: function (error) {
+            document.getElementById("id_error").insertAdjacentText('beforeend', error.responseJSON.detail)
+        }
+    })
+}
+
 const login = () => {
-    if (localStorage.getItem("accessToken") != null) {
-        window.location.href = "/profile.html"
-    }
 
     let username = document.getElementById("id_username").value
     let password = document.getElementById("id_password").value
@@ -69,7 +89,8 @@ const urls = (element) => {
 <div class="col">
             <div onclick="copy_to_clipboard('${short_url}')" class="card mt-3">
                 <div class="card-body pb-0">
-                    <h6 class="card-title">${short_url}</h6>
+                
+                    <h6 class="card-title popup">${short_url}<span class="popuptext" id="popup_${short_url}">Copied to clipboard</span></h6>
                     <p class="card-text small">${url}</p>
                 </div>
                 <div class="card-footer">
@@ -130,4 +151,9 @@ const create = () => {
 
 const copy_to_clipboard = (url) => {
     navigator.clipboard.writeText(url)
+    let popup = document.getElementById("popup_" + url);
+    popup.classList.add("show");
+    setTimeout(function () {
+        popup.classList.remove("show")
+    }, 2000)
 }

@@ -18,23 +18,24 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script src="network/index.js"></script>
-    <title>URLShortener | Вход</title>
+    <title>URLShortener | Регистрация</title>
 </head>
 <body class="text-center ">
 <!--bootstrap signing form-->
 <div id="id_login_div" class="form-signin">
     <img class="mb-4" src="static/favicon.png" alt="" width="50"
          height="50">
-    <h1 class="h3 mb-3 font-weight-normal">Вход</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Регистрация</h1>
+    <p class="small text-danger" id="id_error"></p>
     <label for="id_username" class="sr-only">Имя пользователя</label>
     <input type="text" name="username" id="id_username" class="form-control" placeholder="Имя пользователя" required=""
            autofocus="">
     <label for="id_password" class="sr-only">Пароль</label>
     <input type="password" name="password" id="id_password" class="form-control" placeholder="Пароль" required="">
-    <button class="btn btn-lg btn-primary btn-block" onclick="login()">Войти</button>
+    <button class="btn btn-lg btn-primary btn-block" onclick="signup()">Зарегистрироваться</button>
     <div class="small mt-1 d-inline-flex">
-        <p>Еще нет аккаунта?</p>
-        <a class="ml-1" href="/signup.html">Создайте</a>
+        <p>Уже есть аккаунт?</p>
+        <a class="ml-1" href="/login.html">Войдите</a>
     </div>
 </div>
 <script>
